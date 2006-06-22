@@ -1,0 +1,412 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\calc.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Calc_Icon.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CALC_DIALOG DIALOGEX 0, 0, 387, 262
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "C++ Stat Calculator (Original by Halloween)"
+MENU IDR_MENU1
+FONT 10, "Arial", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Shrines",shrineButton,7,22,34,12,NOT WS_TABSTOP
+    PUSHBUTTON      "Jeloc",jelocButton,45,22,34,12,NOT WS_TABSTOP
+    CONTROL         "GH",ghShrine,"Button",BS_AUTOCHECKBOX,7,37,34,12,
+                    WS_EX_DLGMODALFRAME
+    CONTROL         "6th",sixthJeloc,"Button",BS_AUTOCHECKBOX | WS_DISABLED,
+                    45,37,34,12,WS_EX_DLGMODALFRAME
+    LTEXT           "Actual: ",actualLabel,48,7,23,9,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    LTEXT           "--",actual,76,7,22,9,SS_CENTERIMAGE | NOT WS_GROUP
+    LTEXT           "Used: ",usedLabel,101,7,22,9,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    LTEXT           "--",used,128,7,22,9,SS_CENTERIMAGE | NOT WS_GROUP
+    LTEXT           "Remaining: ",remainingLabel,153,7,39,9,SS_CENTERIMAGE | 
+                    NOT WS_GROUP
+    LTEXT           "--",remain,196,7,22,9,SS_CENTERIMAGE | NOT WS_GROUP
+    CONTROL         "+1",strengthShrine,"Button",BS_AUTOCHECKBOX,7,52,34,12,
+                    WS_EX_DLGMODALFRAME
+    CONTROL         "+2",strengthJeloc,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED,45,52,34,12,WS_EX_DLGMODALFRAME
+    CONTROL         "+1",agilityShrine,"Button",BS_AUTOCHECKBOX,7,67,34,12,
+                    WS_EX_DLGMODALFRAME
+    CONTROL         "+2",agilityJeloc,"Button",BS_AUTOCHECKBOX | WS_DISABLED,
+                    45,67,34,12,WS_EX_DLGMODALFRAME
+    CONTROL         "+1",constitutionShrine,"Button",BS_AUTOCHECKBOX,7,82,34,
+                    12,WS_EX_DLGMODALFRAME
+    CONTROL         "+2",constitutionJeloc,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED,45,82,34,12,WS_EX_DLGMODALFRAME
+    CONTROL         "+1",intelligenceShrine,"Button",BS_AUTOCHECKBOX,7,97,34,
+                    12,WS_EX_DLGMODALFRAME
+    CONTROL         "+2",intelligenceJeloc,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED,45,97,34,12,WS_EX_DLGMODALFRAME
+    CONTROL         "+1",wisdomShrine,"Button",BS_AUTOCHECKBOX,7,112,34,12,
+                    WS_EX_DLGMODALFRAME
+    CONTROL         "+2",wisdomJeloc,"Button",BS_AUTOCHECKBOX | WS_DISABLED,
+                    45,112,34,12,WS_EX_DLGMODALFRAME
+    RTEXT           "Class:",classLabel,86,22,44,12,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    RTEXT           "Level:",levelLabel,86,37,44,12,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    RTEXT           "Strength:",IDC_STATIC,86,52,44,12,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    RTEXT           "Agility:",agilityLabel,86,67,44,12,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    RTEXT           "Constitution:",constitutionLabel,86,82,44,12,
+                    SS_CENTERIMAGE | NOT WS_GROUP
+    RTEXT           "Intelligence:",IDC_STATIC,86,97,44,12,SS_CENTERIMAGE | 
+                    NOT WS_GROUP
+    RTEXT           "Wisdom:",wisdomLabel,86,112,44,12,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    CTEXT           "-------",classShow,146,22,49,12,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    EDITTEXT        lvlIn,146,37,49,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    EDITTEXT        agilIn,146,67,49,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    EDITTEXT        strIn,146,52,49,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    EDITTEXT        consIn,146,82,49,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    EDITTEXT        intelIn,146,97,49,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    EDITTEXT        wisIn,146,112,49,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    PUSHBUTTON      "-",classMinus,207,22,25,12,NOT WS_TABSTOP
+    PUSHBUTTON      "+",classPlus,235,22,23,12,NOT WS_TABSTOP
+    PUSHBUTTON      "-",levelMinus,207,37,25,12,NOT WS_TABSTOP
+    PUSHBUTTON      "+",levelPlus,235,37,23,12,NOT WS_TABSTOP
+    PUSHBUTTON      "-",strMinus,207,52,25,12,NOT WS_TABSTOP
+    PUSHBUTTON      "+",strPlus,235,52,23,12,NOT WS_TABSTOP
+    PUSHBUTTON      "-",agilMinus,207,67,25,12,NOT WS_TABSTOP
+    PUSHBUTTON      "+",agilPlus,235,67,23,12,NOT WS_TABSTOP
+    PUSHBUTTON      "-",consMinus,207,82,25,12,NOT WS_TABSTOP
+    PUSHBUTTON      "+",consPlus,235,82,23,12,NOT WS_TABSTOP
+    PUSHBUTTON      "-",intelMinus,207,97,25,12,NOT WS_TABSTOP
+    PUSHBUTTON      "+",intelPlus,235,97,23,12,NOT WS_TABSTOP
+    PUSHBUTTON      "-",wisMinus,207,112,25,12,NOT WS_TABSTOP
+    PUSHBUTTON      "+",wisPlus,235,112,23,12,NOT WS_TABSTOP
+    CTEXT           "Health",healthLabel,301,14,36,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    CTEXT           "Mana",manaLabel,341,14,36,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    RTEXT           "Base :",baseLabel,267,24,32,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    CTEXT           "7",hpbase,301,24,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "0",mpbase,341,24,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    GROUPBOX        "",IDC_STATIC,7,128,372,9
+    LISTBOX         spellList,7,147,150,27,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL
+    LTEXT           "Spells earned this level :",spellsEarnedLabel,7,138,82,
+                    8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "Experience needed to obtain this level :",
+                    experienceNeededLabel,175,146,131,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    CTEXT           "0",experienceShow,175,161,131,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    GROUPBOX        "Alignment",alignmentGroup,324,138,56,38
+    CONTROL         "Neutral",neutralButton,"Button",BS_AUTORADIOBUTTON,328,
+                    149,39,10
+    CONTROL         "Full",fullButton,"Button",BS_AUTORADIOBUTTON,328,163,28,
+                    10
+    PUSHBUTTON      "Reset",reset,7,234,372,21,NOT WS_TABSTOP
+    CONTROL         135,strBMP,"Static",SS_BITMAP | NOT WS_VISIBLE,197,54,8,
+                    7
+    CONTROL         135,agilBMP,"Static",SS_BITMAP | NOT WS_VISIBLE,197,70,8,
+                    7
+    CONTROL         135,consBMP,"Static",SS_BITMAP | NOT WS_VISIBLE,197,85,8,
+                    7
+    CONTROL         135,intelBMP,"Static",SS_BITMAP | NOT WS_VISIBLE,197,99,
+                    8,7
+    CONTROL         135,wisBMP,"Static",SS_BITMAP | NOT WS_VISIBLE,197,114,8,
+                    7
+    GROUPBOX        "",IDC_STATIC,7,175,372,9
+    PUSHBUTTON      "Load",loadButton,160,194,42,13,NOT WS_TABSTOP
+    DEFPUSHBUTTON   "Save",saveButton,337,194,42,27,NOT WS_TABSTOP
+    EDITTEXT        saveIn,232,207,103,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    LTEXT           "Save to file :",charSaveLabel,232,198,58,8
+    LISTBOX         loadList,7,194,150,27,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL
+    LTEXT           "Load saved stats :",charLoadLabel,7,185,62,8,
+                    SS_CENTERIMAGE | NOT WS_GROUP
+    GROUPBOX        "",IDC_STATIC,7,222,364,9
+    PUSHBUTTON      "Delete",deleteButton,160,208,42,13,NOT WS_TABSTOP
+    EDITTEXT        hphelmIn,310,64,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    EDITTEXT        hparmorIn,310,76,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    EDITTEXT        hpgloveIn,310,88,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    EDITTEXT        hpweapIn,310,100,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    EDITTEXT        hpringIn,310,112,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    RTEXT           "Helmet :",helmLabel,267,65,32,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    RTEXT           "Armor :",armorLabel,267,77,32,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    RTEXT           "Gloves :",glovesLabel,267,89,32,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    RTEXT           "Weapon :",weapLabel,267,101,32,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    RTEXT           "Rings :",ringLabel,267,113,32,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    EDITTEXT        mphelmIn,350,64,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    EDITTEXT        mparmorIn,350,76,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    EDITTEXT        mpgloveIn,350,88,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    EDITTEXT        mpweapIn,350,100,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    EDITTEXT        mpringIn,350,112,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    LTEXT           "%",percent1,329,65,8,8
+    LTEXT           "%",percent2,329,77,8,8
+    LTEXT           "%",percent3,329,89,8,8
+    LTEXT           "%",percent4,329,101,8,8
+    LTEXT           "%",percent5,329,113,8,8
+    LTEXT           "%",percent6,369,113,8,8
+    LTEXT           "%",percent7,369,101,8,8
+    LTEXT           "%",percent8,369,89,8,8
+    LTEXT           "%",percent9,369,77,8,8
+    LTEXT           "%",percent0,369,65,8,8
+    RTEXT           "+% Base :",extraLabel,263,35,36,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    CTEXT           "7",hpextra,301,35,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "0",mpextra,341,35,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    RTEXT           "+",addition1,301,65,8,8
+    RTEXT           "+",addition2,301,77,8,8
+    RTEXT           "+",addition3,301,89,8,8
+    RTEXT           "+",addition4,301,101,8,8
+    RTEXT           "+",addition5,301,113,8,8
+    RTEXT           "+",addition6,341,113,8,8
+    RTEXT           "+",addition7,341,101,8,8
+    RTEXT           "+",addition8,341,89,8,8
+    RTEXT           "+",addition9,341,77,8,8
+    RTEXT           "+",addition0,341,65,8,8
+    GROUPBOX        "",IDC_STATIC,264,45,116,80
+    RTEXT           "Human :",helmLabel2,267,53,32,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    CONTROL         "",hphuman,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,315,53,
+                    8,8
+    CONTROL         "",mphuman,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,355,53,
+                    8,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "calc MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "calc\0"
+            VALUE "LegalCopyright", "Copyright (C) 2005\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "calc.EXE\0"
+            VALUE "ProductName", "calc Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_CALC_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 379
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 255
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU DISCARDABLE 
+BEGIN
+    POPUP "File"
+    BEGIN
+        MENUITEM "Exit",                        ID_FILE_EXIT
+    END
+    POPUP "Bonuses"
+    BEGIN
+        POPUP "Strength", GRAYED
+        BEGIN
+            MENUITEM "21, 25, 29",                  ID_BONUSES_STR
+            MENUITEM "34, 39",                      ID_BONUSES_STR_3439
+            MENUITEM "45, 51, 61",                  ID_BONUSES_STR_45
+        END
+        POPUP "Agility", GRAYED
+        BEGIN
+            MENUITEM "Fig / Paladin :",             ID_BONUSES_AGILITY_FIGPALADIN
+
+            MENUITEM "   39, 45",                   ID_BONUSES_AGILITY_3945
+            MENUITEM SEPARATOR
+            MENUITEM "Ranger / Darkwar / Barb :",   ID_BONUSES_AGILITY_RANGERDARKWARBARB
+
+            MENUITEM "   29, 39, 45",               ID_BONUSES_AGILITY_293945
+
+            MENUITEM SEPARATOR
+            MENUITEM "Cleric :",                    ID_BONUSES_AGILITY_CLERIC
+
+            MENUITEM "   ...",                      ID_BONUSES_AGILITY
+            MENUITEM SEPARATOR
+            MENUITEM "Druid :",                     ID_BONUSES_AGILITY_DRUID
+            MENUITEM "   50",                       ID_BONUSES_AGILITY_50
+            MENUITEM SEPARATOR
+            MENUITEM "Warlock / Wizard :",          ID_BONUSES_AGILITY_WARLOCKWIZARD
+
+            MENUITEM "   61",                       ID_BONUSES_AGILITY_61
+        END
+        POPUP "Cons / Intel / Wis"
+        BEGIN
+            MENUITEM "EJ Confirmed :",              ID_BONUSES_EJCONFIRMED
+            , INACTIVE
+            MENUITEM "   15, 17, 19",               ID_BONUSES_151719
+            , INACTIVE
+            MENUITEM "   21, 25, 29",               ID_BONUSES_212529
+            , INACTIVE
+            MENUITEM "   34, 39",                   ID_BONUSES_3439
+            , INACTIVE
+            MENUITEM "   45",                       ID_BONUSES_45, INACTIVE
+            MENUITEM "   50",                       ID_BONUSES_50, INACTIVE
+            MENUITEM "   61, 71, 81, 91, ...",      ID_BONUSES_61718191
+            , INACTIVE
+        END
+    END
+    POPUP "Version"
+    BEGIN
+        MENUITEM "HTech v05",                   ID_VERSION_HTECHV03
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1             BITMAP  DISCARDABLE     "res\\dot.bmp"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\calc.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

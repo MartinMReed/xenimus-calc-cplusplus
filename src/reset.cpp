@@ -6,12 +6,6 @@
 /** -[insert name]
 /** --[insert additions descriptions]
 /**
-/** -Halloween (10/16/05)
-/** --Adjusted +bases to account for Xenimus 1.83 update
-/**
-/** -Halloween (08/25/05)
-/** --Reset the saveIn input
-/**
 /** Original copy by:
 /** Halloween (06/15/05)
 /**
@@ -66,27 +60,23 @@ void CCalcDlg::Onreset()
 	//reset everything to its initial values
 	classNumber = 0;
 	lvl = 1;
-
-	statArray[0] = 10;  shrineArray[0] = 0;  // Str
-	statArray[1] = 10;  shrineArray[1] = 0;  // Agil
-	statArray[2] = 10;  shrineArray[2] = 0;  // Cons
-	statArray[3] = 10;  shrineArray[3] = 0;  // Intel
-	statArray[4] = 10;  shrineArray[4] = 0;  // Wis
+	statArray[0] = 10;  shrineArray[0] = 0;
+	statArray[1] = 10;  shrineArray[1] = 0;
+	statArray[2] = 10;  shrineArray[2] = 0;
+	statArray[3] = 10;  shrineArray[3] = 0;
+	statArray[4] = 10;  shrineArray[4] = 0;
 	
-	hpBaseArray[0] = 8;  mpBaseArray[0] = 8;  // Helm
-	hpBaseArray[1] = 0;  mpBaseArray[1] = 0;  // Armor
-	hpBaseArray[2] = 0;  mpBaseArray[2] = 0;  // Glove
-	hpBaseArray[3] = 8;  mpBaseArray[3] = 8;  // Weap
-	hpBaseArray[4] = 36;  mpBaseArray[4] = 30;  // Ring
-	hpBaseArray[5] = 0;  mpBaseArray[5] = 0;  // human
-
-	m_hphuman.SetCheck( 0 );
-	m_mphuman.SetCheck( 0 );
+	starterHelp = FALSE;
+	starterMin[0] = 10;	starterMax[0] = 10;
+	starterMin[1] = 10;	starterMax[1] = 10;
+	starterMin[2] = 10;	starterMax[2] = 10;
+	starterMin[3] = 10;	starterMax[3] = 10;
+	starterMin[4] = 10;	starterMax[4] = 10;
 	
 	m_neutralButton.SetCheck( TRUE );
 	m_fullButton.SetCheck( FALSE );
 	
-	m_saveIn.SetWindowText( "Character Name" );
-	
 	CCalcDlg::redo();
+	
+	m_statusBar.SetWindowText("For help with the starting stats of races, use the six buttons above ^ ^ ^ ^ ^ ^");
 }

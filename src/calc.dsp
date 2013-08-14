@@ -106,10 +106,6 @@ SOURCE=.\exp.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\extraBase.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=.\jeloc.cpp
 # End Source File
 # Begin Source File
@@ -126,15 +122,15 @@ SOURCE=.\reset.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\saveload.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=.\shrine.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=.\spells.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\starter.cpp
 # End Source File
 # Begin Source File
 
@@ -187,12 +183,12 @@ SOURCE=.\res\Calc_Icon.ico
 # End Source File
 # Begin Source File
 
-SOURCE=.\res\dot.bmp
-# End Source File
-# Begin Source File
-
 SOURCE=.\HallowTech.ico
 # End Source File
 # End Group
+# Begin Source File
+
+SOURCE=.\ReadMe.txt
+# End Source File
 # End Target
 # End Project

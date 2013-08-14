@@ -6,13 +6,6 @@
 /** -[insert name]
 /** --[insert additions descriptions]
 /**
-/** -Halloween (10/16/05)
-/** --Adjusted +bases to account for Xenimus 1.83 update
-/**
-/** -Halloween (08/25/05)
-/** --Display bonus bitmaps
-/** --Removed all starter help functions
-/**
 /** Original copy by:
 /** Halloween (06/15/05)
 /**
@@ -36,46 +29,41 @@
 
 class CCalcDlg : public CDialog
 {
-	// Construction
+// Construction
 public:
 	CCalcDlg(CWnd* pParent = NULL);	// standard constructor
-	
-	// Dialog Data
+
+// Dialog Data
 	//{{AFX_DATA(CCalcDlg)
 	enum { IDD = IDD_CALC_DIALOG };
-	CButton	m_hphuman;
-	CButton	m_mphuman;
-	CEdit	m_mpweapIn;
-	CEdit	m_mpringIn;
-	CEdit	m_mphelmIn;
-	CEdit	m_mpgloveIn;
-	CEdit	m_mparmorIn;
-	CEdit	m_hpweapIn;
-	CEdit	m_hpringIn;
-	CEdit	m_hphelmIn;
-	CEdit	m_hpgloveIn;
-	CEdit	m_hparmorIn;
-	CStatic	m_helmLabel;
-	CStatic	m_mpextra;
-	CStatic	m_hpextra;
-	CEdit	m_saveIn;
-	CListBox	m_loadList;
-	CStatic	m_strBMP;
-	CStatic	m_agilBMP;
-	CStatic	m_consBMP;
-	CStatic	m_intelBMP;
-	CStatic	m_wisBMP;
 	CListBox	m_spellList;
+	CEdit	m_lvlIn;
+	CButton	m_reset;
+	CButton	m_BehockStarter;
+	CButton	m_HumanStarter;
+	CButton	m_ScallionStarter;
+	CButton	m_GnomeStarter;
+	CButton	m_ElfStarter;
+	CButton	m_DregStarter;
 	CButton	m_fullButton;
 	CButton	m_neutralButton;
 	CButton	m_ghShrine;
+	CButton	m_shrineButton;
+	CButton	m_jelocButton;
+	CButton	m_wisPlus;
+	CButton	m_wisMinus;
+	CButton	m_intelPlus;
+	CButton	m_intelMinus;
 	CButton	m_consPlus;
 	CButton	m_consMinus;
 	CButton	m_agilPlus;
 	CButton	m_agilMinus;
+	CButton	m_strPlus;
+	CButton	m_strMinus;
+	CButton	m_levelPlus;
+	CButton	m_levelMinus;
 	CButton	m_classPlus;
 	CButton	m_classMinus;
-	CEdit	m_lvlIn;
 	CEdit	m_wisIn;
 	CEdit	m_intelIn;
 	CEdit	m_consIn;
@@ -92,25 +80,42 @@ public:
 	CButton	m_agilityShrine;
 	CButton	m_strengthShrine;
 	CButton	m_sixthJeloc;
-	CStatic	m_actual;
-	CStatic	m_used;
-	CStatic	m_remain;
-	CStatic	m_classShow;
-	CStatic	m_hpbase;
-	CStatic	m_mpbase;
-	CStatic	m_experienceShow;
+	CButton	m_actual;
+	CButton	m_used;
+	CButton	m_remain;
+	CButton	m_classShow;
+	CButton	m_hpbase;
+	CButton	m_hpone;
+	CButton	m_hptwo;
+	CButton	m_hpthree;
+	CButton	m_hpfour;
+	CButton	m_hpfive;
+	CButton	m_hpsix;
+	CButton	m_hpseven;
+	CButton	m_hpeight;
+	CButton	m_mpbase;
+	CButton	m_mpone;
+	CButton	m_mptwo;
+	CButton	m_mpthree;
+	CButton	m_mpfour;
+	CButton	m_mpfive;
+	CButton	m_mpsix;
+	CButton	m_mpseven;
+	CButton	m_mpeight;
+	CButton	m_experienceShow;
+	CButton	m_statusBar;
 	//}}AFX_DATA
-	
+
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CCalcDlg)
-protected:
+	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV support
 	//}}AFX_VIRTUAL
-	
-	// Implementation
+
+// Implementation
 protected:
 	HICON m_hIcon;
-	
+
 	/************************************************************************/
 	/** Set initial values
 	/************************************************************************/
@@ -126,10 +131,10 @@ protected:
 	/**  [0]str, [1]agil, [2]cons, [3]intel, [4]wis
 	/**/ int statArray[5];
 	/**/ int shrineArray[5];
-	/**/
-	/**  [0]helm, [1]armor, [2]glove, [3]weap, [4]ring
-	/**/ int hpBaseArray[6];
-	/**/ int mpBaseArray[6];
+	/**/ 
+	/**/ int starterMax[5];
+	/**/ int starterMin[5];
+	/**/ bool starterHelp;
 	/**/ 
 	/**/ int remainingPoints;
 	/**/ int actualPoints;
@@ -143,26 +148,19 @@ protected:
 	/**/ void redo( );
 	/**/ 
 	/**  used for experience
-	/**/ LPCTSTR exp( int level );
+	/**/ LPCTSTR exp(int level);
 	/**/ 
 	/**  used for spells
-	/**/ void spells ( int cla, int level );
+	/**/ void spells (int cla, int level);
 	/**/ 
 	/**  used to change stats
-	/**/ void statMinus( int i );
-	/**/ void statPlus( int i );
-	/**/ 
-	/**  used to display bonus bitmaps
-	/**/ void showBonus( );
-	/**/ int isBonus( int n );
-	/**/ 
-	/**  look for dat files
-	/**/ void ReadDATs( );
+	/**/ void statMinus(int i);
+	/**/ void statPlus(int i);
 	/**/
 	/************************************************************************/
 	/** end
 	/************************************************************************/
-	
+
 	// Generated message map functions
 	//{{AFX_MSG(CCalcDlg)
 	virtual BOOL OnInitDialog();
@@ -171,6 +169,12 @@ protected:
 	afx_msg void jelocButton_click();
 	afx_msg void OnFileExit();
 	afx_msg void Onreset();
+	afx_msg void OnDregStarter();
+	afx_msg void OnElfStarter();
+	afx_msg void OnGnomeStarter();
+	afx_msg void OnScallionStarter();
+	afx_msg void OnHumanStarter();
+	afx_msg void OnBehockStarter();
 	afx_msg void OnsixthJeloc();
 	afx_msg void OnstrengthJeloc();
 	afx_msg void OnagilityJeloc();
@@ -206,22 +210,6 @@ protected:
 	afx_msg void OnKillfocusconsIn();
 	afx_msg void OnKillfocusintelIn();
 	afx_msg void OnKillfocuswisIn();
-	afx_msg void OnloadButton();
-	afx_msg void OnsaveButton();
-	afx_msg void OnButton1();
-	afx_msg void OndeleteButton();
-	afx_msg void OnKillfocushparmorIn();
-	afx_msg void OnKillfocushpgloveIn();
-	afx_msg void OnKillfocushphelmIn();
-	afx_msg void OnKillfocushpringIn();
-	afx_msg void OnKillfocushpweapIn();
-	afx_msg void OnKillfocusmparmorIn();
-	afx_msg void OnKillfocusmpgloveIn();
-	afx_msg void OnKillfocusmphelmIn();
-	afx_msg void OnKillfocusmpringIn();
-	afx_msg void OnKillfocusmpweapIn();
-	afx_msg void Onhphuman();
-	afx_msg void Onmphuman();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -73,9 +73,8 @@ IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Calc_Icon.ico"
 // Dialog
 //
 
-IDD_CALC_DIALOG DIALOGEX 0, 0, 387, 262
-STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
-    WS_SYSMENU
+IDD_CALC_DIALOG DIALOGEX 0, 0, 379, 240
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "C++ Stat Calculator (Original by Halloween)"
 MENU IDR_MENU1
@@ -152,102 +151,70 @@ BEGIN
     PUSHBUTTON      "+",intelPlus,235,97,23,12,NOT WS_TABSTOP
     PUSHBUTTON      "-",wisMinus,207,112,25,12,NOT WS_TABSTOP
     PUSHBUTTON      "+",wisPlus,235,112,23,12,NOT WS_TABSTOP
-    CTEXT           "Health",healthLabel,301,14,36,8,SS_CENTERIMAGE | NOT 
+    CTEXT           "Health",healthLabel,295,14,36,8,SS_CENTERIMAGE | NOT 
                     WS_GROUP
-    CTEXT           "Mana",manaLabel,341,14,36,8,SS_CENTERIMAGE | NOT 
+    CTEXT           "Mana",manaLabel,335,14,36,8,SS_CENTERIMAGE | NOT 
                     WS_GROUP
-    RTEXT           "Base :",baseLabel,267,24,32,8,SS_CENTERIMAGE | NOT 
+    RTEXT           "Base :",baseLabel,266,25,27,8,SS_CENTERIMAGE | NOT 
                     WS_GROUP
-    CTEXT           "7",hpbase,301,24,36,8,SS_CENTERIMAGE | NOT WS_GROUP
-    CTEXT           "0",mpbase,341,24,36,8,SS_CENTERIMAGE | NOT WS_GROUP
-    GROUPBOX        "",IDC_STATIC,7,128,372,9
+    RTEXT           "+1 :",oneLabel,266,36,27,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    RTEXT           "+2 :",twoLabel,266,47,27,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    RTEXT           "+3 :",threeLabel,266,58,27,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    RTEXT           "+4 :",fourLabel,266,69,27,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    RTEXT           "+5 :",fiveLabel,266,80,27,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    RTEXT           "+6 :",sixLabel,266,91,27,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    RTEXT           "+7 :",sevenLabel,266,102,27,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    RTEXT           "+8 :",eightLabel,266,113,27,8,SS_CENTERIMAGE | NOT 
+                    WS_GROUP
+    CTEXT           "7",hpbase,295,25,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "8",hpone,295,36,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "8",hptwo,295,47,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "9",hpthree,295,58,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "9",hpfour,295,69,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "10",hpfive,295,80,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "11",hpsix,295,91,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "11",hpseven,295,102,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "12",hpeight,295,113,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "0",mpbase,335,25,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "0",mpone,335,36,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "0",mptwo,335,47,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "1",mpthree,335,58,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "1",mpfour,335,69,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "2",mpfive,335,80,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "2",mpsix,335,91,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "3",mpseven,335,102,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    CTEXT           "3",mpeight,335,113,36,8,SS_CENTERIMAGE | NOT WS_GROUP
+    GROUPBOX        "",IDC_STATIC,7,128,364,9
     LISTBOX         spellList,7,147,150,27,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
                     WS_VSCROLL
     LTEXT           "Spells earned this level :",spellsEarnedLabel,7,138,82,
                     8,SS_CENTERIMAGE | NOT WS_GROUP
     CTEXT           "Experience needed to obtain this level :",
-                    experienceNeededLabel,175,146,131,8,SS_CENTERIMAGE | NOT 
+                    experienceNeededLabel,170,144,131,8,SS_CENTERIMAGE | NOT 
                     WS_GROUP
-    CTEXT           "0",experienceShow,175,161,131,8,SS_CENTERIMAGE | NOT 
+    CTEXT           "0",experienceShow,170,157,131,8,SS_CENTERIMAGE | NOT 
                     WS_GROUP
-    GROUPBOX        "Alignment",alignmentGroup,324,138,56,38
-    CONTROL         "Neutral",neutralButton,"Button",BS_AUTORADIOBUTTON,328,
+    GROUPBOX        "Alignment",alignmentGroup,315,138,56,38
+    CONTROL         "Neutral",neutralButton,"Button",BS_AUTORADIOBUTTON,319,
                     149,39,10
-    CONTROL         "Full",fullButton,"Button",BS_AUTORADIOBUTTON,328,163,28,
-                    10
-    PUSHBUTTON      "Reset",reset,7,234,372,21,NOT WS_TABSTOP
-    CONTROL         135,strBMP,"Static",SS_BITMAP | NOT WS_VISIBLE,197,54,8,
-                    7
-    CONTROL         135,agilBMP,"Static",SS_BITMAP | NOT WS_VISIBLE,197,70,8,
-                    7
-    CONTROL         135,consBMP,"Static",SS_BITMAP | NOT WS_VISIBLE,197,85,8,
-                    7
-    CONTROL         135,intelBMP,"Static",SS_BITMAP | NOT WS_VISIBLE,197,99,
-                    8,7
-    CONTROL         135,wisBMP,"Static",SS_BITMAP | NOT WS_VISIBLE,197,114,8,
-                    7
-    GROUPBOX        "",IDC_STATIC,7,175,372,9
-    PUSHBUTTON      "Load",loadButton,160,194,42,13,NOT WS_TABSTOP
-    DEFPUSHBUTTON   "Save",saveButton,337,194,42,27,NOT WS_TABSTOP
-    EDITTEXT        saveIn,232,207,103,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
-    LTEXT           "Save to file :",charSaveLabel,232,198,58,8
-    LISTBOX         loadList,7,194,150,27,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
-                    WS_VSCROLL
-    LTEXT           "Load saved stats :",charLoadLabel,7,185,62,8,
-                    SS_CENTERIMAGE | NOT WS_GROUP
-    GROUPBOX        "",IDC_STATIC,7,222,364,9
-    PUSHBUTTON      "Delete",deleteButton,160,208,42,13,NOT WS_TABSTOP
-    EDITTEXT        hphelmIn,310,64,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
-    EDITTEXT        hparmorIn,310,76,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
-    EDITTEXT        hpgloveIn,310,88,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
-    EDITTEXT        hpweapIn,310,100,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
-    EDITTEXT        hpringIn,310,112,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
-    RTEXT           "Helmet :",helmLabel,267,65,32,8,SS_CENTERIMAGE | NOT 
-                    WS_GROUP
-    RTEXT           "Armor :",armorLabel,267,77,32,8,SS_CENTERIMAGE | NOT 
-                    WS_GROUP
-    RTEXT           "Gloves :",glovesLabel,267,89,32,8,SS_CENTERIMAGE | NOT 
-                    WS_GROUP
-    RTEXT           "Weapon :",weapLabel,267,101,32,8,SS_CENTERIMAGE | NOT 
-                    WS_GROUP
-    RTEXT           "Rings :",ringLabel,267,113,32,8,SS_CENTERIMAGE | NOT 
-                    WS_GROUP
-    EDITTEXT        mphelmIn,350,64,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
-    EDITTEXT        mparmorIn,350,76,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
-    EDITTEXT        mpgloveIn,350,88,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
-    EDITTEXT        mpweapIn,350,100,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
-    EDITTEXT        mpringIn,350,112,19,10,ES_AUTOHSCROLL | NOT WS_TABSTOP
-    LTEXT           "%",percent1,329,65,8,8
-    LTEXT           "%",percent2,329,77,8,8
-    LTEXT           "%",percent3,329,89,8,8
-    LTEXT           "%",percent4,329,101,8,8
-    LTEXT           "%",percent5,329,113,8,8
-    LTEXT           "%",percent6,369,113,8,8
-    LTEXT           "%",percent7,369,101,8,8
-    LTEXT           "%",percent8,369,89,8,8
-    LTEXT           "%",percent9,369,77,8,8
-    LTEXT           "%",percent0,369,65,8,8
-    RTEXT           "+% Base :",extraLabel,263,35,36,8,SS_CENTERIMAGE | NOT 
-                    WS_GROUP
-    CTEXT           "7",hpextra,301,35,36,8,SS_CENTERIMAGE | NOT WS_GROUP
-    CTEXT           "0",mpextra,341,35,36,8,SS_CENTERIMAGE | NOT WS_GROUP
-    RTEXT           "+",addition1,301,65,8,8
-    RTEXT           "+",addition2,301,77,8,8
-    RTEXT           "+",addition3,301,89,8,8
-    RTEXT           "+",addition4,301,101,8,8
-    RTEXT           "+",addition5,301,113,8,8
-    RTEXT           "+",addition6,341,113,8,8
-    RTEXT           "+",addition7,341,101,8,8
-    RTEXT           "+",addition8,341,89,8,8
-    RTEXT           "+",addition9,341,77,8,8
-    RTEXT           "+",addition0,341,65,8,8
-    GROUPBOX        "",IDC_STATIC,264,45,116,80
-    RTEXT           "Human :",helmLabel2,267,53,32,8,SS_CENTERIMAGE | NOT 
-                    WS_GROUP
-    CONTROL         "",hphuman,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,315,53,
-                    8,8
-    CONTROL         "",mphuman,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,355,53,
-                    8,8
+    CONTROL         "Full Good",fullButton,"Button",BS_AUTORADIOBUTTON,319,
+                    163,48,10
+    LTEXT           "STATUS BAR",statusBar,7,225,364,8
+    GROUPBOX        "Starter Help",starterHelpGroup,7,187,267,33
+    PUSHBUTTON      "Dreg",DregStarter,10,199,43,14,NOT WS_TABSTOP
+    PUSHBUTTON      "Elf",ElfStarter,53,199,43,14,NOT WS_TABSTOP
+    PUSHBUTTON      "Gnome",GnomeStarter,96,199,43,14,NOT WS_TABSTOP
+    PUSHBUTTON      "Scallion",ScallionStarter,138,199,43,14,NOT WS_TABSTOP
+    PUSHBUTTON      "Human",HumanStarter,182,199,43,14,NOT WS_TABSTOP
+    PUSHBUTTON      "Behock",BehockStarter,225,199,43,14,NOT WS_TABSTOP
+    PUSHBUTTON      "Reset",reset,287,197,84,17,NOT WS_TABSTOP
 END
 
 
@@ -305,9 +272,9 @@ BEGIN
     IDD_CALC_DIALOG, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 379
+        RIGHTMARGIN, 371
         TOPMARGIN, 7
-        BOTTOMMARGIN, 255
+        BOTTOMMARGIN, 233
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -326,63 +293,22 @@ BEGIN
     END
     POPUP "Bonuses"
     BEGIN
-        POPUP "Strength", GRAYED
-        BEGIN
-            MENUITEM "21, 25, 29",                  ID_BONUSES_STR
-            MENUITEM "34, 39",                      ID_BONUSES_STR_3439
-            MENUITEM "45, 51, 61",                  ID_BONUSES_STR_45
-        END
-        POPUP "Agility", GRAYED
-        BEGIN
-            MENUITEM "Fig / Paladin :",             ID_BONUSES_AGILITY_FIGPALADIN
-
-            MENUITEM "   39, 45",                   ID_BONUSES_AGILITY_3945
-            MENUITEM SEPARATOR
-            MENUITEM "Ranger / Darkwar / Barb :",   ID_BONUSES_AGILITY_RANGERDARKWARBARB
-
-            MENUITEM "   29, 39, 45",               ID_BONUSES_AGILITY_293945
-
-            MENUITEM SEPARATOR
-            MENUITEM "Cleric :",                    ID_BONUSES_AGILITY_CLERIC
-
-            MENUITEM "   ...",                      ID_BONUSES_AGILITY
-            MENUITEM SEPARATOR
-            MENUITEM "Druid :",                     ID_BONUSES_AGILITY_DRUID
-            MENUITEM "   50",                       ID_BONUSES_AGILITY_50
-            MENUITEM SEPARATOR
-            MENUITEM "Warlock / Wizard :",          ID_BONUSES_AGILITY_WARLOCKWIZARD
-
-            MENUITEM "   61",                       ID_BONUSES_AGILITY_61
-        END
-        POPUP "Cons / Intel / Wis"
-        BEGIN
-            MENUITEM "EJ Confirmed :",              ID_BONUSES_EJCONFIRMED
-            , INACTIVE
-            MENUITEM "   15, 17, 19",               ID_BONUSES_151719
-            , INACTIVE
-            MENUITEM "   21, 25, 29",               ID_BONUSES_212529
-            , INACTIVE
-            MENUITEM "   34, 39",                   ID_BONUSES_3439
-            , INACTIVE
-            MENUITEM "   45",                       ID_BONUSES_45, INACTIVE
-            MENUITEM "   50",                       ID_BONUSES_50, INACTIVE
-            MENUITEM "   61, 71, 81, 91, ...",      ID_BONUSES_61718191
-            , INACTIVE
-        END
-    END
-    POPUP "Version"
-    BEGIN
-        MENUITEM "HTech v05",                   ID_VERSION_HTECHV03
+        MENUITEM "EJ Confirmed :",              ID_BONUSES_EJCONFIRMED
+        , INACTIVE
+        MENUITEM "   15, 17, 19",               ID_BONUSES_151719, INACTIVE
+        MENUITEM "   21, 25, 29",               ID_BONUSES_212529, INACTIVE
+        MENUITEM "   34, 39",                   ID_BONUSES_3439, INACTIVE
+        MENUITEM "   45",                       ID_BONUSES_45, INACTIVE
+        MENUITEM SEPARATOR
+        MENUITEM "Halloween Added :",           ID_BONUSES_HALLOWEENADDED
+        , INACTIVE
+        MENUITEM "   50",                       ID_BONUSES_50, INACTIVE
+        MENUITEM "   61, 71, 81, 91, ...",      ID_BONUSES_61718191
+        , INACTIVE
+        MENUITEM "   etc",                      ID_BONUSES_ETC, INACTIVE
     END
 END
 
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Bitmap
-//
-
-IDB_BITMAP1             BITMAP  DISCARDABLE     "res\\dot.bmp"
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

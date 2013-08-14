@@ -27,49 +27,48 @@ static char THIS_FILE[] = __FILE__;
 //-------------------------------------------------------
 // SHRINE BUTTON
 //-------------------------------------------------------
-void CCalcDlg::OnshrineButton( ) 
+void CCalcDlg::OnshrineButton() 
 {
 	//if shrineButton button has not been pushed, select all shrines not already selected
-	if ( selectAllShrines == FALSE )
+	if (selectAllShrines == false)
 	{
-		if ( m_strengthShrine.GetCheck( ) == FALSE ) { m_strengthShrine.SetCheck( TRUE ); CCalcDlg::OnstrengthShrine( ); }
-		if ( m_agilityShrine.GetCheck( ) == FALSE ) { m_agilityShrine.SetCheck( TRUE ); CCalcDlg::OnagilityShrine( ); }
-		if ( m_constitutionShrine.GetCheck( ) == FALSE ) { m_constitutionShrine.SetCheck( TRUE ); CCalcDlg::OnconstitutionShrine( ); }
-		if ( m_intelligenceShrine.GetCheck( ) == FALSE ) { m_intelligenceShrine.SetCheck( TRUE ); CCalcDlg::OnintelligenceShrine( ); }
-		if ( m_wisdomShrine.GetCheck( ) == FALSE ) { m_wisdomShrine.SetCheck( TRUE ); CCalcDlg::OnwisdomShrine( ); }
-		if ( m_ghShrine.GetCheck( ) == FALSE ) { m_ghShrine.SetCheck( TRUE ); CCalcDlg::OnghShrine( ); }
+		if(m_strengthShrine.GetCheck() == FALSE) { m_strengthShrine.SetCheck( TRUE ); CCalcDlg::OnstrengthShrine(); }
+		if(m_agilityShrine.GetCheck() == FALSE) { m_agilityShrine.SetCheck( TRUE ); CCalcDlg::OnagilityShrine(); }
+		if(m_constitutionShrine.GetCheck() == FALSE) { m_constitutionShrine.SetCheck( TRUE ); CCalcDlg::OnconstitutionShrine(); }
+		if(m_intelligenceShrine.GetCheck() == FALSE) { m_intelligenceShrine.SetCheck( TRUE ); CCalcDlg::OnintelligenceShrine(); }
+		if(m_wisdomShrine.GetCheck() == FALSE) { m_wisdomShrine.SetCheck( TRUE ); CCalcDlg::OnwisdomShrine(); }
+		if(m_ghShrine.GetCheck() == FALSE) { m_ghShrine.SetCheck( TRUE ); CCalcDlg::OnghShrine(); }
 		
 		//shrineButton = pushed
 		selectAllShrines = TRUE;
 	}
 	//if shrineButton has been pushed already, unselect all shrines not already unselected
-	else if ( selectAllShrines == TRUE )
+	else if (selectAllShrines == true)
 	{
-		if ( m_strengthShrine.GetCheck( ) == TRUE ) { m_strengthShrine.SetCheck( FALSE ); CCalcDlg::OnstrengthShrine( ); }
-		if ( m_agilityShrine.GetCheck( ) == TRUE ) { m_agilityShrine.SetCheck( FALSE ); CCalcDlg::OnagilityShrine( ); }
-		if ( m_constitutionShrine.GetCheck( ) == TRUE ) { m_constitutionShrine.SetCheck( FALSE ); CCalcDlg::OnconstitutionShrine( ); }
-		if ( m_intelligenceShrine.GetCheck( ) == TRUE ) { m_intelligenceShrine.SetCheck( FALSE ); CCalcDlg::OnintelligenceShrine( ); }
-		if ( m_wisdomShrine.GetCheck( ) == TRUE ) { m_wisdomShrine.SetCheck( FALSE ); CCalcDlg::OnwisdomShrine( ); }
-		if ( m_ghShrine.GetCheck( ) == TRUE ) { m_ghShrine.SetCheck( FALSE ); CCalcDlg::OnghShrine( ); }
+		if(m_strengthShrine.GetCheck() == TRUE) { m_strengthShrine.SetCheck( FALSE ); CCalcDlg::OnstrengthShrine(); }
+		if(m_agilityShrine.GetCheck() == TRUE) { m_agilityShrine.SetCheck( FALSE ); CCalcDlg::OnagilityShrine(); }
+		if(m_constitutionShrine.GetCheck() == TRUE) { m_constitutionShrine.SetCheck( FALSE ); CCalcDlg::OnconstitutionShrine(); }
+		if(m_intelligenceShrine.GetCheck() == TRUE) { m_intelligenceShrine.SetCheck( FALSE ); CCalcDlg::OnintelligenceShrine(); }
+		if(m_wisdomShrine.GetCheck() == TRUE) { m_wisdomShrine.SetCheck( FALSE ); CCalcDlg::OnwisdomShrine(); }
+		if(m_ghShrine.GetCheck() == TRUE) { m_ghShrine.SetCheck( FALSE ); CCalcDlg::OnghShrine(); }
 		
 		//shrineButton = not pushed
 		selectAllShrines = FALSE;
 	}
-	
-	CCalcDlg::redo( );
+	CCalcDlg::redo();
 }
 
 
 //-------------------------------------------------------
 // GREAT HALL (MONITOR AND CHANGE)
 //-------------------------------------------------------
-void CCalcDlg::OnghShrine( ) 
+void CCalcDlg::OnghShrine() 
 {
 	//if selected
-	if ( m_ghShrine.GetCheck( ) == TRUE )
+	if ( m_ghShrine.GetCheck() == TRUE )
 	{	
 		//if less then 13 wisdom
-		if ( statArray[4] < 13 ){ statArray[4] = 13; }
+		if (statArray[4]<13){ statArray[4]=13; }
 		
 		//add 1 more to each stat
 		statArray[0]++; shrineArray[0]++;
@@ -87,8 +86,7 @@ void CCalcDlg::OnghShrine( )
 		statArray[3]--; shrineArray[3]--;
 		statArray[4]--; shrineArray[4]--;
 	}
-	
-	CCalcDlg::redo( );
+	CCalcDlg::redo();
 }
 
 
@@ -97,12 +95,12 @@ void CCalcDlg::OnghShrine( )
 // SHRINES (MONITOR AND CHANGE)
 //-------------------------------------------------------
 //STRENGTH
-void CCalcDlg::OnstrengthShrine( ) 
+void CCalcDlg::OnstrengthShrine() 
 {
 	//if selected
-	if ( m_strengthShrine.GetCheck( ) == TRUE )
+	if ( m_strengthShrine.GetCheck() == TRUE )
 	{
-		if ( statArray[4] < 13 ){ statArray[4] = 13; }
+		if (statArray[4]<13){ statArray[4]=13; }
 		statArray[0]++; shrineArray[0]++;
 	}
 	//if de-selected
@@ -110,18 +108,17 @@ void CCalcDlg::OnstrengthShrine( )
 	{
 		statArray[0]--; shrineArray[0]--;
 	}
-	
-	CCalcDlg::redo( );
+	CCalcDlg::redo();
 }
 
 
 //AGILITY
-void CCalcDlg::OnagilityShrine( ) 
+void CCalcDlg::OnagilityShrine() 
 {
 	//if selected
-	if ( m_agilityShrine.GetCheck( ) == TRUE )
+	if ( m_agilityShrine.GetCheck() == TRUE )
 	{
-		if ( statArray[4] < 13 ){ statArray[4] = 13; }
+		if (statArray[4]<13){ statArray[4]=13; }
 		statArray[1]++; shrineArray[1]++;
 	}
 	//if de-selected
@@ -129,18 +126,17 @@ void CCalcDlg::OnagilityShrine( )
 	{
 		statArray[1]--; shrineArray[1]--;
 	}
-	
-	CCalcDlg::redo( );
+	CCalcDlg::redo();
 }
 
 
 //CONSTITUTION
-void CCalcDlg::OnconstitutionShrine( ) 
+void CCalcDlg::OnconstitutionShrine() 
 {
 	//if selected
-	if ( m_constitutionShrine.GetCheck( ) == TRUE )
+	if ( m_constitutionShrine.GetCheck() == TRUE )
 	{
-		if ( statArray[4] < 13 ){ statArray[4] = 13; }
+		if (statArray[4]<13){ statArray[4]=13; }
 		statArray[2]++; shrineArray[2]++;
 	}
 	//if de-selected
@@ -148,18 +144,17 @@ void CCalcDlg::OnconstitutionShrine( )
 	{
 		statArray[2]--; shrineArray[2]--;
 	}
-	
-	CCalcDlg::redo( );
+	CCalcDlg::redo();
 }
 
 
 //INTELLIGENCE
-void CCalcDlg::OnintelligenceShrine( ) 
+void CCalcDlg::OnintelligenceShrine() 
 {
 	//if selected
-	if ( m_intelligenceShrine.GetCheck( ) == TRUE )
+	if ( m_intelligenceShrine.GetCheck() == TRUE )
 	{
-		if ( statArray[4] < 13 ){ statArray[4] = 13; }
+		if (statArray[4]<13){ statArray[4]=13; }
 		statArray[3]++; shrineArray[3]++;
 	}
 	//if de-selected
@@ -167,18 +162,17 @@ void CCalcDlg::OnintelligenceShrine( )
 	{
 		statArray[3]--; shrineArray[3]--;
 	}
-	
-	CCalcDlg::redo( );
+	CCalcDlg::redo();
 }
 
 
 //WISDOM
-void CCalcDlg::OnwisdomShrine( ) 
+void CCalcDlg::OnwisdomShrine() 
 {
 	//if selected
-	if ( m_wisdomShrine.GetCheck( ) == TRUE )
+	if ( m_wisdomShrine.GetCheck() == TRUE )
 	{
-		if ( statArray[4] < 13 ){ statArray[4] = 13; }
+		if (statArray[4]<13){ statArray[4]=13; }
 		statArray[4]++; shrineArray[4]++;
 	}
 	//if de-selected
@@ -186,6 +180,5 @@ void CCalcDlg::OnwisdomShrine( )
 	{
 		statArray[4]--; shrineArray[4]--;
 	}
-	
-	CCalcDlg::redo( );	
+	CCalcDlg::redo();	
 }

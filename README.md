@@ -1,5 +1,11 @@
 ## Release Notes
 
+### Version 05 (June 22, 2006)
+
+Disabled Strength and Agility bonus displays due to lack of confirmation and accuracy.
+
+Changed human random skill bonus for hp and mp to be 1% every 10 levels.
+
 ### Version 04 (October 18, 2005)
 
 Adjusted +bases to account for Xenimus 1.83 update.

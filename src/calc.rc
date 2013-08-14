@@ -79,7 +79,7 @@ STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION |
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "C++ Stat Calculator (Original by Halloween)"
 MENU IDR_MENU1
-FONT 10, "Arial"
+FONT 10, "Arial", 0, 0, 0x1
 BEGIN
     PUSHBUTTON      "Shrines",shrineButton,7,22,34,12,NOT WS_TABSTOP
     PUSHBUTTON      "Jeloc",jelocButton,45,22,34,12,NOT WS_TABSTOP
@@ -326,13 +326,13 @@ BEGIN
     END
     POPUP "Bonuses"
     BEGIN
-        POPUP "Strength"
+        POPUP "Strength", GRAYED
         BEGIN
             MENUITEM "21, 25, 29",                  ID_BONUSES_STR
             MENUITEM "34, 39",                      ID_BONUSES_STR_3439
             MENUITEM "45, 51, 61",                  ID_BONUSES_STR_45
         END
-        POPUP "Agility"
+        POPUP "Agility", GRAYED
         BEGIN
             MENUITEM "Fig / Paladin :",             ID_BONUSES_AGILITY_FIGPALADIN
 
@@ -365,9 +365,6 @@ BEGIN
             MENUITEM "   34, 39",                   ID_BONUSES_3439
             , INACTIVE
             MENUITEM "   45",                       ID_BONUSES_45, INACTIVE
-            MENUITEM SEPARATOR
-            MENUITEM "Halloween Added :",           ID_BONUSES_HALLOWEENADDED
-            , INACTIVE
             MENUITEM "   50",                       ID_BONUSES_50, INACTIVE
             MENUITEM "   61, 71, 81, 91, ...",      ID_BONUSES_61718191
             , INACTIVE
@@ -375,7 +372,7 @@ BEGIN
     END
     POPUP "Version"
     BEGIN
-        MENUITEM "HTech v04",                   ID_VERSION_HTECHV03
+        MENUITEM "HTech v05",                   ID_VERSION_HTECHV03
     END
 END
 

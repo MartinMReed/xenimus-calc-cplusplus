@@ -182,7 +182,7 @@ private:
 		else if (s<45) {return 8;} // 39-44
 		else if (s<50) {return 9;} // 45-49
 		else if (s<61) {return 10;} // 50-60
-		else { return 12 + (int)floor((s-61) / 10);} // 61, 71, 81, etc
+		else { return 12 + (int)floor((s-61) / 10.0);} // 61, 71, 81, etc
 	} //end of bonus method
 	
 	

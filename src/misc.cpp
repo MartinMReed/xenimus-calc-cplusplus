@@ -6,6 +6,9 @@
 /** -[insert name]
 /** --[insert additions descriptions]
 /**
+/** -Halloween (06/22/06)
+/** --Disabled str and agil bonus displays
+/**
 /** -Halloween (08/30/05)
 /** --Enable full alignment radio for paladins
 /**
@@ -277,17 +280,17 @@ void CCalcDlg::showBonus( )
 	//
 	//str bonus bmp -- NOT 100% POSITIVE --
 	//
-	if ( statArray[0] == 21 || statArray[0] == 25 || statArray[0] == 29 ||
+	/*if ( statArray[0] == 21 || statArray[0] == 25 || statArray[0] == 29 ||
 		statArray[0] == 34 || statArray[0] == 39 || statArray[0] == 45 ||
 		statArray[0] == 51 || statArray[0] == 61 )
 	{ m_strBMP.ShowWindow( TRUE ); }
-	else { m_strBMP.ShowWindow( FALSE ); }
+	else { m_strBMP.ShowWindow( FALSE ); }*/
 	
 	
 	//
 	//agil bonus bmp -- NOT 100% POSITIVE --
 	//
-	if ( classNumber == 0 || classNumber == 2 )
+	/*if ( classNumber == 0 || classNumber == 2 )
 	{
 		//fighter, paladin
 		if ( statArray[1] == 39 || statArray[1] == 45 )
@@ -318,7 +321,7 @@ void CCalcDlg::showBonus( )
 		if ( statArray[1] == 50 )
 		{ m_agilBMP.ShowWindow( TRUE ); }
 		else { m_agilBMP.ShowWindow( FALSE ); }
-	}
+	}*/
 	
 	
 	//

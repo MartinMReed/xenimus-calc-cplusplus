@@ -6,6 +6,9 @@
 /** -[insert name]
 /** --[insert additions descriptions]
 /**
+/** -Halloween (06/22/06)
+/** --Changed human's mp/hp skill to be 1% every 10 lvls
+/**
 /** -Halloween (10/16/05)
 /** --Adjusted +bases to account for Xenimus 1.83 update
 /**
@@ -105,8 +108,8 @@ void CCalcDlg::redo()
 		else if ( classNumber == 2 ){ m_mpbase.SetWindowText( itoa( ( int )( calcN->getMana( ) * paladinFull ), buffer, 10 ) ); }
 	} else { m_mpbase.SetWindowText( itoa( calcN->getMana(), buffer, 10 ) ); }
 	
-	mpBaseArray[5] = 6*m_mphuman.GetCheck( );
-	hpBaseArray[5] = 6*m_hphuman.GetCheck( );
+	mpBaseArray[5] = (int)floor(lvl / 10.0)*m_mphuman.GetCheck( );
+	hpBaseArray[5] = (int)floor(lvl / 10.0)*m_hphuman.GetCheck( );
 
 	double plusHPBase = hpBaseArray[0] + hpBaseArray[1] + hpBaseArray[2] + hpBaseArray[3] + hpBaseArray[4] + hpBaseArray[5];
 	m_hphelmIn.SetWindowText( itoa( hpBaseArray[0], buffer,10) );

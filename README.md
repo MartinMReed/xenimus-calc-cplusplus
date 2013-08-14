@@ -1,5 +1,13 @@
 ## Release Notes
 
+### Version 04 (October 18, 2005)
+
+Adjusted +bases to account for Xenimus 1.83 update.
+
+Notes:
+The human hp/mp check boxes are for the random +% skill humans can get.
+Remember that some items have built in +% hp/mp beyond what you get from propping.
+
 ### Version 03 (August 31, 2005)
 
 Added Paladin mana for full alignment.

@@ -6,6 +6,9 @@
 /** -[insert name]
 /** --[insert additions descriptions]
 /**
+/** -Halloween (10/16/05)
+/** --Adjusted +bases to account for Xenimus 1.83 update
+/**
 /** -Halloween (08/25/05)
 /** --Display bonus bitmaps
 /** --Removed all starter help functions
@@ -40,6 +43,21 @@ public:
 	// Dialog Data
 	//{{AFX_DATA(CCalcDlg)
 	enum { IDD = IDD_CALC_DIALOG };
+	CButton	m_hphuman;
+	CButton	m_mphuman;
+	CEdit	m_mpweapIn;
+	CEdit	m_mpringIn;
+	CEdit	m_mphelmIn;
+	CEdit	m_mpgloveIn;
+	CEdit	m_mparmorIn;
+	CEdit	m_hpweapIn;
+	CEdit	m_hpringIn;
+	CEdit	m_hphelmIn;
+	CEdit	m_hpgloveIn;
+	CEdit	m_hparmorIn;
+	CStatic	m_helmLabel;
+	CStatic	m_mpextra;
+	CStatic	m_hpextra;
 	CEdit	m_saveIn;
 	CListBox	m_loadList;
 	CStatic	m_strBMP;
@@ -79,23 +97,7 @@ public:
 	CStatic	m_remain;
 	CStatic	m_classShow;
 	CStatic	m_hpbase;
-	CStatic	m_hpone;
-	CStatic	m_hptwo;
-	CStatic	m_hpthree;
-	CStatic	m_hpfour;
-	CStatic	m_hpfive;
-	CStatic	m_hpsix;
-	CStatic	m_hpseven;
-	CStatic	m_hpeight;
 	CStatic	m_mpbase;
-	CStatic	m_mpone;
-	CStatic	m_mptwo;
-	CStatic	m_mpthree;
-	CStatic	m_mpfour;
-	CStatic	m_mpfive;
-	CStatic	m_mpsix;
-	CStatic	m_mpseven;
-	CStatic	m_mpeight;
 	CStatic	m_experienceShow;
 	//}}AFX_DATA
 	
@@ -124,6 +126,10 @@ protected:
 	/**  [0]str, [1]agil, [2]cons, [3]intel, [4]wis
 	/**/ int statArray[5];
 	/**/ int shrineArray[5];
+	/**/
+	/**  [0]helm, [1]armor, [2]glove, [3]weap, [4]ring
+	/**/ int hpBaseArray[6];
+	/**/ int mpBaseArray[6];
 	/**/ 
 	/**/ int remainingPoints;
 	/**/ int actualPoints;
@@ -204,6 +210,18 @@ protected:
 	afx_msg void OnsaveButton();
 	afx_msg void OnButton1();
 	afx_msg void OndeleteButton();
+	afx_msg void OnKillfocushparmorIn();
+	afx_msg void OnKillfocushpgloveIn();
+	afx_msg void OnKillfocushphelmIn();
+	afx_msg void OnKillfocushpringIn();
+	afx_msg void OnKillfocushpweapIn();
+	afx_msg void OnKillfocusmparmorIn();
+	afx_msg void OnKillfocusmpgloveIn();
+	afx_msg void OnKillfocusmphelmIn();
+	afx_msg void OnKillfocusmpringIn();
+	afx_msg void OnKillfocusmpweapIn();
+	afx_msg void Onhphuman();
+	afx_msg void Onmphuman();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -106,6 +106,10 @@ SOURCE=.\exp.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\extraBase.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\jeloc.cpp
 # End Source File
 # Begin Source File

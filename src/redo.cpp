@@ -6,6 +6,9 @@
 /** -[insert name]
 /** --[insert additions descriptions]
 /**
+/** -Halloween (10/16/05)
+/** --Adjusted +bases to account for Xenimus 1.83 update
+/**
 /** -Halloween (08/30/05)
 /** --Paladin full alignment formula
 /** --Enable full alignment radio for paladins
@@ -52,6 +55,15 @@ void CCalcDlg::redo()
 	if ( classNumber == 6 ){ m_classShow.SetWindowText( "Druid" ); }
 	if ( classNumber == 7 ){ m_classShow.SetWindowText( "Darkwar" ); }
 	if ( classNumber == 8 ){ m_classShow.SetWindowText( "Barbarian" ); }
+
+	if ( classNumber == 4 || classNumber == 5 )
+	{
+		m_helmLabel.SetWindowText( "Hat :" );
+	}
+	else
+	{
+		m_helmLabel.SetWindowText( "Helmet :" );
+	}
 	
 	//enable jeloc shrines after turning level 36+
 	//but not if sixth shrine is selected
@@ -66,7 +78,7 @@ void CCalcDlg::redo()
 	}
 	
 	//write statArray to text boxes (needed when using -/+ buttons)
-	m_lvlIn.SetWindowText( itoa( lvl,buffer,10) );
+	m_lvlIn.SetWindowText( itoa( lvl, buffer, 10) );
 	m_strIn.SetWindowText( itoa( statArray[0], buffer, 10 ) );
 	m_agilIn.SetWindowText( itoa( statArray[1], buffer, 10 ) );
 	m_consIn.SetWindowText( itoa( statArray[2], buffer, 10 ) );
@@ -93,69 +105,30 @@ void CCalcDlg::redo()
 		else if ( classNumber == 2 ){ m_mpbase.SetWindowText( itoa( ( int )( calcN->getMana( ) * paladinFull ), buffer, 10 ) ); }
 	} else { m_mpbase.SetWindowText( itoa( calcN->getMana(), buffer, 10 ) ); }
 	
-	//calculate health and mana for +1 bases
-	calcN = new calculator( classNumber,lvl,1,1,statArray[0],statArray[1],statArray[2],statArray[3],statArray[4] );
-	m_hpone.SetWindowText( itoa( calcN->getHealth( ), buffer, 10 ) );
+	mpBaseArray[5] = 6*m_mphuman.GetCheck( );
+	hpBaseArray[5] = 6*m_hphuman.GetCheck( );
+
+	double plusHPBase = hpBaseArray[0] + hpBaseArray[1] + hpBaseArray[2] + hpBaseArray[3] + hpBaseArray[4] + hpBaseArray[5];
+	m_hphelmIn.SetWindowText( itoa( hpBaseArray[0], buffer,10) );
+	m_hparmorIn.SetWindowText( itoa( hpBaseArray[1], buffer,10) );
+	m_hpgloveIn.SetWindowText( itoa( hpBaseArray[2], buffer,10) );
+	m_hpweapIn.SetWindowText( itoa( hpBaseArray[3], buffer,10) );
+	m_hpringIn.SetWindowText( itoa( hpBaseArray[4], buffer,10) );
+
+	double plusMPBase = mpBaseArray[0] + mpBaseArray[1] + mpBaseArray[2] + mpBaseArray[3] + mpBaseArray[4] + mpBaseArray[5];
+	m_mphelmIn.SetWindowText( itoa( mpBaseArray[0], buffer,10) );
+	m_mparmorIn.SetWindowText( itoa( mpBaseArray[1], buffer,10) );
+	m_mpgloveIn.SetWindowText( itoa( mpBaseArray[2], buffer,10) );
+	m_mpweapIn.SetWindowText( itoa( mpBaseArray[3], buffer,10) );
+	m_mpringIn.SetWindowText( itoa( mpBaseArray[4], buffer,10) );
+
+	//calculate health and mana for + bases
+	calcN = new calculator( classNumber,lvl,plusHPBase,plusMPBase,statArray[0],statArray[1],statArray[2],statArray[3],statArray[4] );
+	m_hpextra.SetWindowText( itoa( calcN->getHealth( ), buffer, 10 ) );
 	if ( m_fullButton.GetCheck( ) == TRUE ) {
-		if ( classNumber == 3 ){ m_mpone.SetWindowText( itoa( ( int )( calcN->getMana( ) * clericFull ), buffer, 10 ) ); }
-		else if ( classNumber == 2 ){ m_mpone.SetWindowText( itoa( ( int )( calcN->getMana( ) *  paladinFull ), buffer, 10 ) ); }
-	} else { m_mpone.SetWindowText( itoa( calcN->getMana( ), buffer, 10 ) ); }
-	
-	//calculate health and mana for +2 bases
-	calcN = new calculator( classNumber,lvl,2,2,statArray[0],statArray[1],statArray[2],statArray[3],statArray[4] );
-	m_hptwo.SetWindowText( itoa( calcN->getHealth( ), buffer, 10 ) );
-	if ( m_fullButton.GetCheck( ) == TRUE ) {
-		if ( classNumber == 3 ){ m_mptwo.SetWindowText( itoa( ( int )( calcN->getMana( ) * clericFull ), buffer, 10 ) ); }
-		else if ( classNumber == 2 ){ m_mptwo.SetWindowText( itoa( ( int )( calcN->getMana( ) *  paladinFull ), buffer, 10 ) ); }
-	} else { m_mptwo.SetWindowText( itoa( calcN->getMana( ), buffer, 10 ) ); }
-	
-	//calculate health and mana for +3 bases
-	calcN = new calculator( classNumber,lvl,3,3,statArray[0],statArray[1],statArray[2],statArray[3],statArray[4] );
-	m_hpthree.SetWindowText( itoa( calcN->getHealth( ), buffer, 10 ) );
-	if ( m_fullButton.GetCheck( ) == TRUE ) {
-		if ( classNumber == 3 ){ m_mpthree.SetWindowText( itoa( ( int )( calcN->getMana( ) * clericFull ), buffer, 10 ) ); }
-		else if ( classNumber == 2 ){ m_mpthree.SetWindowText( itoa( ( int )( calcN->getMana( ) *  paladinFull ), buffer, 10 ) ); }
-	} else { m_mpthree.SetWindowText( itoa( calcN->getMana( ), buffer, 10 ) ); }
-		  
-	//calculate health and mana for +4 bases
-	calcN = new calculator( classNumber,lvl,4,4,statArray[0],statArray[1],statArray[2],statArray[3],statArray[4] );
-	m_hpfour.SetWindowText( itoa( calcN->getHealth( ), buffer, 10 ) );
-	if ( m_fullButton.GetCheck( ) == TRUE ) {
-		if ( classNumber == 3 ){ m_mpfour.SetWindowText( itoa( ( int )( calcN->getMana( ) * clericFull ), buffer, 10 ) ); }
-		else if ( classNumber == 2 ){ m_mpfour.SetWindowText( itoa( ( int )( calcN->getMana( ) *  paladinFull ), buffer, 10 ) ); }
-	} else { m_mpfour.SetWindowText( itoa( calcN->getMana( ), buffer, 10 ) ); }
-		  
-	//calculate health and mana for +5 bases
-	calcN = new calculator( classNumber,lvl,5,5,statArray[0],statArray[1],statArray[2],statArray[3],statArray[4] );
-	m_hpfive.SetWindowText( itoa( calcN->getHealth( ), buffer, 10 ) );
-	if ( m_fullButton.GetCheck( ) == TRUE ) {
-		if ( classNumber == 3 ){ m_mpfive.SetWindowText( itoa( ( int )( calcN->getMana( ) * clericFull ), buffer, 10 ) ); }
-		else if ( classNumber == 2 ){ m_mpfive.SetWindowText( itoa( ( int )( calcN->getMana( ) *  paladinFull ), buffer, 10 ) ); }
-	} else { m_mpfive.SetWindowText( itoa( calcN->getMana( ), buffer, 10 ) ); }
-		  
-	//calculate health and mana for +6 bases
-	calcN = new calculator( classNumber,lvl,6,6,statArray[0],statArray[1],statArray[2],statArray[3],statArray[4] );
-	m_hpsix.SetWindowText( itoa( calcN->getHealth( ), buffer, 10 ) );
-	if ( m_fullButton.GetCheck( ) == TRUE ) {
-		if ( classNumber == 3 ){ m_mpsix.SetWindowText( itoa( ( int )( calcN->getMana( ) * clericFull ), buffer, 10 ) ); }
-		else if ( classNumber == 2 ){ m_mpsix.SetWindowText( itoa( ( int )( calcN->getMana( ) *  paladinFull ), buffer, 10 ) ); }
-	} else { m_mpsix.SetWindowText( itoa( calcN->getMana( ), buffer, 10 ) ); }
-		  
-	//calculate health and mana for +7 bases
-	calcN = new calculator( classNumber,lvl,7,7,statArray[0],statArray[1],statArray[2],statArray[3],statArray[4] );
-	m_hpseven.SetWindowText( itoa( calcN->getHealth( ), buffer, 10 ) );
-	if ( m_fullButton.GetCheck( ) == TRUE ) {
-		if ( classNumber == 3 ){ m_mpseven.SetWindowText( itoa( ( int )( calcN->getMana( ) * clericFull ), buffer, 10 ) ); }
-		else if ( classNumber == 2 ){ m_mpseven.SetWindowText( itoa( ( int )( calcN->getMana( ) *  paladinFull ), buffer, 10 ) ); }
-	} else { m_mpseven.SetWindowText( itoa( calcN->getMana( ), buffer, 10 ) ); }
-		  
-	//calculate health and mana for +8 bases
-	calcN = new calculator( classNumber,lvl,8,8,statArray[0],statArray[1],statArray[2],statArray[3],statArray[4] );
-	m_hpeight.SetWindowText( itoa( calcN->getHealth( ), buffer, 10 ) );
-	if ( m_fullButton.GetCheck( ) == TRUE ) {
-		if ( classNumber == 3 ){ m_mpeight.SetWindowText( itoa( ( int )( calcN->getMana( ) * clericFull ) , buffer, 10 ) ); }
-		else if ( classNumber == 2 ){ m_mpeight.SetWindowText( itoa( ( int )( calcN->getMana( ) *  paladinFull ), buffer, 10 ) ); }
-	} else { m_mpeight.SetWindowText( itoa( calcN->getMana( ), buffer, 10 ) ); }
+		if ( classNumber == 3 ){ m_mpextra.SetWindowText( itoa( ( int )( calcN->getMana( ) * clericFull ), buffer, 10 ) ); }
+		else if ( classNumber == 2 ){ m_mpextra.SetWindowText( itoa( ( int )( calcN->getMana( ) *  paladinFull ), buffer, 10 ) ); }
+	} else { m_mpextra.SetWindowText( itoa( calcN->getMana( ), buffer, 10 ) ); }
 	
 	//display the spells for the current level
 	CCalcDlg::spells( classNumber,lvl );

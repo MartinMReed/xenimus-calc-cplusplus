@@ -6,6 +6,9 @@
 /** -[insert name]
 /** --[insert additions descriptions]
 /**
+/** -Halloween (10/16/05)
+/** --Adjusted +bases to account for Xenimus 1.83 update
+/**
 /** Original copy by:
 /** Halloween (06/15/05)
 /**
@@ -34,7 +37,7 @@ public:
 * @param Intelligence .
 * @param Wisdom .
 	*/
-	calculator(int Class, int Level, int HPBases, int MPBases, int Strength,
+	calculator(int Class, int Level, double HPBases, double MPBases, int Strength,
 		int Agility, int Constitution, int Intelligence, int Wisdom)
 	{
 		double mpCore = coreMana(Class,Level,Intelligence,Wisdom);
@@ -116,8 +119,8 @@ private:
 	  *
 	  * @return MP/HP after adding bases
 	*/
-	double extraBase(double b, int n) {
-		return b*(0.08*n);
+	double extraBase(double b, double n) {
+		return b*(n/100);
 	} //end of extraBase method
 	
 	

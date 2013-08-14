@@ -6,6 +6,9 @@
 /** -[insert name]
 /** --[insert additions descriptions]
 /**
+/** -Halloween (10/16/05)
+/** --Adjusted +bases to account for Xenimus 1.83 update
+/**
 /** -Halloween (08/25/05)
 /** --Removed all starter help functions
 /**
@@ -45,6 +48,21 @@ void CCalcDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CCalcDlg)
+	DDX_Control(pDX, hphuman, m_hphuman);
+	DDX_Control(pDX, mphuman, m_mphuman);
+	DDX_Control(pDX, mpweapIn, m_mpweapIn);
+	DDX_Control(pDX, mpringIn, m_mpringIn);
+	DDX_Control(pDX, mphelmIn, m_mphelmIn);
+	DDX_Control(pDX, mpgloveIn, m_mpgloveIn);
+	DDX_Control(pDX, mparmorIn, m_mparmorIn);
+	DDX_Control(pDX, hpweapIn, m_hpweapIn);
+	DDX_Control(pDX, hpringIn, m_hpringIn);
+	DDX_Control(pDX, hphelmIn, m_hphelmIn);
+	DDX_Control(pDX, hpgloveIn, m_hpgloveIn);
+	DDX_Control(pDX, hparmorIn, m_hparmorIn);
+	DDX_Control(pDX, helmLabel, m_helmLabel);
+	DDX_Control(pDX, mpextra, m_mpextra);
+	DDX_Control(pDX, hpextra, m_hpextra);
 	DDX_Control(pDX, saveIn, m_saveIn);
 	DDX_Control(pDX, loadList, m_loadList);
 	DDX_Control(pDX, strBMP, m_strBMP);
@@ -84,23 +102,7 @@ void CCalcDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, remain, m_remain);
 	DDX_Control(pDX, classShow, m_classShow);
 	DDX_Control(pDX, hpbase, m_hpbase);
-	DDX_Control(pDX, hpone, m_hpone);
-	DDX_Control(pDX, hptwo, m_hptwo);
-	DDX_Control(pDX, hpthree, m_hpthree);
-	DDX_Control(pDX, hpfour, m_hpfour);
-	DDX_Control(pDX, hpfive, m_hpfive);
-	DDX_Control(pDX, hpsix, m_hpsix);
-	DDX_Control(pDX, hpseven, m_hpseven);
-	DDX_Control(pDX, hpeight, m_hpeight);
 	DDX_Control(pDX, mpbase, m_mpbase);
-	DDX_Control(pDX, mpone, m_mpone);
-	DDX_Control(pDX, mptwo, m_mptwo);
-	DDX_Control(pDX, mpthree, m_mpthree);
-	DDX_Control(pDX, mpfour, m_mpfour);
-	DDX_Control(pDX, mpfive, m_mpfive);
-	DDX_Control(pDX, mpsix, m_mpsix);
-	DDX_Control(pDX, mpseven, m_mpseven);
-	DDX_Control(pDX, mpeight, m_mpeight);
 	DDX_Control(pDX, experienceShow, m_experienceShow);
 	//}}AFX_DATA_MAP
 }
@@ -150,7 +152,19 @@ ON_EN_KILLFOCUS(wisIn, OnKillfocuswisIn)
 ON_BN_CLICKED(loadButton, OnloadButton)
 ON_BN_CLICKED(saveButton, OnsaveButton)
 ON_BN_CLICKED(deleteButton, OndeleteButton)
-//}}AFX_MSG_MAP
+	ON_EN_KILLFOCUS(hparmorIn, OnKillfocushparmorIn)
+	ON_EN_KILLFOCUS(hpgloveIn, OnKillfocushpgloveIn)
+	ON_EN_KILLFOCUS(hphelmIn, OnKillfocushphelmIn)
+	ON_EN_KILLFOCUS(hpringIn, OnKillfocushpringIn)
+	ON_EN_KILLFOCUS(hpweapIn, OnKillfocushpweapIn)
+	ON_EN_KILLFOCUS(mparmorIn, OnKillfocusmparmorIn)
+	ON_EN_KILLFOCUS(mpgloveIn, OnKillfocusmpgloveIn)
+	ON_EN_KILLFOCUS(mphelmIn, OnKillfocusmphelmIn)
+	ON_EN_KILLFOCUS(mpringIn, OnKillfocusmpringIn)
+	ON_EN_KILLFOCUS(mpweapIn, OnKillfocusmpweapIn)
+	ON_BN_CLICKED(hphuman, Onhphuman)
+	ON_BN_CLICKED(mphuman, Onmphuman)
+	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -175,11 +189,18 @@ BOOL CCalcDlg::OnInitDialog()
 	/**/ lvl = 1;
 	/**/
 	/**  stat points and addition points from shrines
-	/**/ statArray[0] = 10;  shrineArray[0] = 0;
-	/**/ statArray[1] = 10;  shrineArray[1] = 0;
-	/**/ statArray[2] = 10;  shrineArray[2] = 0;
-	/**/ statArray[3] = 10;  shrineArray[3] = 0;
-	/**/ statArray[4] = 10;  shrineArray[4] = 0;
+	/**/ statArray[0] = 10;  shrineArray[0] = 0;  // Str
+	/**/ statArray[1] = 10;  shrineArray[1] = 0;  // Agil
+	/**/ statArray[2] = 10;  shrineArray[2] = 0;  // Cons
+	/**/ statArray[3] = 10;  shrineArray[3] = 0;  // Intel
+	/**/ statArray[4] = 10;  shrineArray[4] = 0;  // Wis
+	/**/
+	/**  extra hp and mp base from items
+	/**/ hpBaseArray[0] = 8;  mpBaseArray[0] = 8;  // Helm
+	/**/ hpBaseArray[1] = 0;  mpBaseArray[1] = 0;  // Armor
+	/**/ hpBaseArray[2] = 0;  mpBaseArray[2] = 0;  // Glove
+	/**/ hpBaseArray[3] = 8;  mpBaseArray[3] = 8;  // Weap
+	/**/ hpBaseArray[4] = 36;  mpBaseArray[4] = 30;  // Ring
 	/**/
 	/**/ remainingPoints = 25;
 	/**/ actualPoints = 75;

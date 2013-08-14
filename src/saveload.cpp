@@ -6,6 +6,9 @@
 /** -[insert name]
 /** --[insert additions descriptions]
 /**
+/** -Halloween (10/16/05)
+/** --Save +%bases to account for Xenimus 1.83 update
+/**
 /** Original copy by:
 /** Halloween (08/25/05)
 /**
@@ -107,11 +110,17 @@ void CCalcDlg::OnloadButton( )
 		int j[6];
 		
 		//read the .dat file and save the info
-		fscanf( in, "%i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i",
+		fscanf( in, "%i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i",
 			&classNumber, &lvl, &statArray[0], &statArray[1], &statArray[2], &statArray[3],
 			&statArray[4], &shrineArray[0], &shrineArray[1], &shrineArray[2], &shrineArray[3],
 			&shrineArray[4], &s[0], &s[1], &s[2], &s[3], &s[4], &s[5], &j[0], &j[1], &j[2],
-			&j[3], &j[4], &j[5] );
+			&j[3], &j[4], &j[5], &hpBaseArray[0], &hpBaseArray[1], &hpBaseArray[2], &hpBaseArray[3],
+			&hpBaseArray[4], &hpBaseArray[5], &mpBaseArray[0], &mpBaseArray[1], &mpBaseArray[2],
+			&mpBaseArray[3], &mpBaseArray[4], &mpBaseArray[5] );
+
+		//human skills
+		if ( mpBaseArray[5] == 6 ) { m_mphuman.SetCheck( 1 ); }
+		if ( hpBaseArray[5] == 6 ) { m_hphuman.SetCheck( 1 ); }
 		
 		//check the shrines
 		m_ghShrine.SetCheck( s[0] );
@@ -167,7 +176,7 @@ void CCalcDlg::OnsaveButton( )
 	if ( out != NULL )
 	{
 		//write the info to a dat file
-		fprintf( out, "%i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i",
+		fprintf( out, "%i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i %i",
 			classNumber,
 			lvl,
 			statArray[0],
@@ -191,7 +200,19 @@ void CCalcDlg::OnsaveButton( )
 			m_agilityJeloc.GetCheck( ), 
 			m_constitutionJeloc.GetCheck( ),
 			m_intelligenceJeloc.GetCheck( ), 
-			m_wisdomJeloc.GetCheck( ) );
+			m_wisdomJeloc.GetCheck( ),
+			hpBaseArray[0],
+			hpBaseArray[1],
+			hpBaseArray[2],
+			hpBaseArray[3],
+			hpBaseArray[4],
+			hpBaseArray[5],
+			mpBaseArray[0],
+			mpBaseArray[1],
+			mpBaseArray[2],
+			mpBaseArray[3],
+			mpBaseArray[4],
+			mpBaseArray[5] );
 		
 		fclose( out );
 	}

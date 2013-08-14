@@ -79,7 +79,7 @@ STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION |
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "C++ Stat Calculator (Original by Halloween)"
 MENU IDR_MENU1
-FONT 10, "Arial"
+FONT 10, "Arial", 0, 0, 0x1
 BEGIN
     PUSHBUTTON      "Shrines",shrineButton,7,22,34,12,NOT WS_TABSTOP
     PUSHBUTTON      "Jeloc",jelocButton,45,22,34,12,NOT WS_TABSTOP
@@ -356,7 +356,7 @@ BEGIN
     END
     POPUP "Version"
     BEGIN
-        MENUITEM "HTech v02",                   ID_VERSION_HTECHV02
+        MENUITEM "HTech v03",                   ID_VERSION_HTECHV03
     END
 END
 

@@ -1,5 +1,9 @@
 ## Release Notes
 
+### Version 03 (August 31, 2005)
+
+Added Paladin mana for full alignment.
+
 ### Version 02 (August 29, 2005)
 
 Changed mana cost for Juxta. The ones with ~ were estimated (33% decrease from original cost)

@@ -6,6 +6,9 @@
 /** -[insert name]
 /** --[insert additions descriptions]
 /**
+/** -Halloween (08/30/05)
+/** --Enable full alignment radio for paladins
+/**
 /** -Halloween (08/25/05)
 /** --Display bonus bitmaps
 /**
@@ -50,8 +53,8 @@ void CCalcDlg::OnneutralButton( )
 //-------------------------------------------------------
 void CCalcDlg::OnfullButton( ) 
 {
-	//only clerics can use this feature
-	if ( classNumber != 3 )
+	//only clerics and paladins can use this feature
+	if ( classNumber != 3 && classNumber != 2 )
 	{
 		m_neutralButton.SetCheck( TRUE );
 		m_fullButton.SetCheck( FALSE );

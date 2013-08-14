@@ -124,7 +124,7 @@
 #define ID_BONUSES_AGILITY_61           32803
 #define ID_BONUSES_AGILITY_DRUID        32804
 #define ID_BONUSES_AGILITY_50           32805
-#define ID_VERSION_HTECHV02             32808
+#define ID_VERSION_HTECHV03             32808
 
 // Next default values for new objects
 // 

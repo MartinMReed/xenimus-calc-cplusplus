@@ -1,6 +1,6 @@
 ## Release Notes
 
-### Version 05
+### Version 05 (June 22, 2006)
 
 Disabled Strength and Agility bonus displays due to lack of confirmation and accuracy.
 

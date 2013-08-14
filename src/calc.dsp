@@ -122,15 +122,15 @@ SOURCE=.\reset.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\saveload.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\shrine.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=.\spells.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\starter.cpp
 # End Source File
 # Begin Source File
 
@@ -180,6 +180,10 @@ SOURCE=.\Calc_Icon.ico
 # Begin Source File
 
 SOURCE=.\res\Calc_Icon.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\dot.bmp
 # End Source File
 # Begin Source File
 

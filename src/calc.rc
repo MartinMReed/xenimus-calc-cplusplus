@@ -73,12 +73,13 @@ IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Calc_Icon.ico"
 // Dialog
 //
 
-IDD_CALC_DIALOG DIALOGEX 0, 0, 379, 240
-STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+IDD_CALC_DIALOG DIALOGEX 0, 0, 379, 262
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "C++ Stat Calculator (Original by Halloween)"
 MENU IDR_MENU1
-FONT 10, "Arial", 0, 0, 0x1
+FONT 10, "Arial"
 BEGIN
     PUSHBUTTON      "Shrines",shrineButton,7,22,34,12,NOT WS_TABSTOP
     PUSHBUTTON      "Jeloc",jelocButton,45,22,34,12,NOT WS_TABSTOP
@@ -197,24 +198,37 @@ BEGIN
     LTEXT           "Spells earned this level :",spellsEarnedLabel,7,138,82,
                     8,SS_CENTERIMAGE | NOT WS_GROUP
     CTEXT           "Experience needed to obtain this level :",
-                    experienceNeededLabel,170,144,131,8,SS_CENTERIMAGE | NOT 
+                    experienceNeededLabel,170,146,131,8,SS_CENTERIMAGE | NOT 
                     WS_GROUP
-    CTEXT           "0",experienceShow,170,157,131,8,SS_CENTERIMAGE | NOT 
+    CTEXT           "0",experienceShow,170,161,131,8,SS_CENTERIMAGE | NOT 
                     WS_GROUP
     GROUPBOX        "Alignment",alignmentGroup,315,138,56,38
     CONTROL         "Neutral",neutralButton,"Button",BS_AUTORADIOBUTTON,319,
                     149,39,10
-    CONTROL         "Full Good",fullButton,"Button",BS_AUTORADIOBUTTON,319,
-                    163,48,10
-    LTEXT           "STATUS BAR",statusBar,7,225,364,8
-    GROUPBOX        "Starter Help",starterHelpGroup,7,187,267,33
-    PUSHBUTTON      "Dreg",DregStarter,10,199,43,14,NOT WS_TABSTOP
-    PUSHBUTTON      "Elf",ElfStarter,53,199,43,14,NOT WS_TABSTOP
-    PUSHBUTTON      "Gnome",GnomeStarter,96,199,43,14,NOT WS_TABSTOP
-    PUSHBUTTON      "Scallion",ScallionStarter,138,199,43,14,NOT WS_TABSTOP
-    PUSHBUTTON      "Human",HumanStarter,182,199,43,14,NOT WS_TABSTOP
-    PUSHBUTTON      "Behock",BehockStarter,225,199,43,14,NOT WS_TABSTOP
-    PUSHBUTTON      "Reset",reset,287,197,84,17,NOT WS_TABSTOP
+    CONTROL         "Full",fullButton,"Button",BS_AUTORADIOBUTTON,319,163,28,
+                    10
+    PUSHBUTTON      "Reset",reset,7,234,364,21,NOT WS_TABSTOP
+    CONTROL         135,strBMP,"Static",SS_BITMAP | NOT WS_VISIBLE,197,54,8,
+                    7
+    CONTROL         135,agilBMP,"Static",SS_BITMAP | NOT WS_VISIBLE,197,70,8,
+                    7
+    CONTROL         135,consBMP,"Static",SS_BITMAP | NOT WS_VISIBLE,197,85,8,
+                    7
+    CONTROL         135,intelBMP,"Static",SS_BITMAP | NOT WS_VISIBLE,197,99,
+                    8,7
+    CONTROL         135,wisBMP,"Static",SS_BITMAP | NOT WS_VISIBLE,197,114,8,
+                    7
+    GROUPBOX        "",IDC_STATIC,7,175,364,9
+    PUSHBUTTON      "Load",loadButton,160,194,42,13,NOT WS_TABSTOP
+    DEFPUSHBUTTON   "Save",saveButton,329,194,42,27,NOT WS_TABSTOP
+    EDITTEXT        saveIn,224,207,103,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    LTEXT           "Save to file :",charSaveLabel,224,198,58,8
+    LISTBOX         loadList,7,194,150,27,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL
+    LTEXT           "Load saved stats :",charLoadLabel,7,185,62,8,
+                    SS_CENTERIMAGE | NOT WS_GROUP
+    GROUPBOX        "",IDC_STATIC,7,222,364,9
+    PUSHBUTTON      "Delete",deleteButton,160,208,42,13,NOT WS_TABSTOP
 END
 
 
@@ -274,7 +288,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 371
         TOPMARGIN, 7
-        BOTTOMMARGIN, 233
+        BOTTOMMARGIN, 255
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -293,22 +307,66 @@ BEGIN
     END
     POPUP "Bonuses"
     BEGIN
-        MENUITEM "EJ Confirmed :",              ID_BONUSES_EJCONFIRMED
-        , INACTIVE
-        MENUITEM "   15, 17, 19",               ID_BONUSES_151719, INACTIVE
-        MENUITEM "   21, 25, 29",               ID_BONUSES_212529, INACTIVE
-        MENUITEM "   34, 39",                   ID_BONUSES_3439, INACTIVE
-        MENUITEM "   45",                       ID_BONUSES_45, INACTIVE
-        MENUITEM SEPARATOR
-        MENUITEM "Halloween Added :",           ID_BONUSES_HALLOWEENADDED
-        , INACTIVE
-        MENUITEM "   50",                       ID_BONUSES_50, INACTIVE
-        MENUITEM "   61, 71, 81, 91, ...",      ID_BONUSES_61718191
-        , INACTIVE
-        MENUITEM "   etc",                      ID_BONUSES_ETC, INACTIVE
+        POPUP "Strength"
+        BEGIN
+            MENUITEM "21, 25, 29",                  ID_BONUSES_STR
+            MENUITEM "34, 39",                      ID_BONUSES_STR_3439
+            MENUITEM "45, 51, 61",                  ID_BONUSES_STR_45
+        END
+        POPUP "Agility"
+        BEGIN
+            MENUITEM "Fig / Paladin :",             ID_BONUSES_AGILITY_FIGPALADIN
+
+            MENUITEM "   39, 45",                   ID_BONUSES_AGILITY_3945
+            MENUITEM SEPARATOR
+            MENUITEM "Ranger / Darkwar / Barb :",   ID_BONUSES_AGILITY_RANGERDARKWARBARB
+
+            MENUITEM "   29, 39, 45",               ID_BONUSES_AGILITY_293945
+
+            MENUITEM SEPARATOR
+            MENUITEM "Cleric :",                    ID_BONUSES_AGILITY_CLERIC
+
+            MENUITEM "   ...",                      ID_BONUSES_AGILITY
+            MENUITEM SEPARATOR
+            MENUITEM "Druid :",                     ID_BONUSES_AGILITY_DRUID
+            MENUITEM "   50",                       ID_BONUSES_AGILITY_50
+            MENUITEM SEPARATOR
+            MENUITEM "Warlock / Wizard :",          ID_BONUSES_AGILITY_WARLOCKWIZARD
+
+            MENUITEM "   61",                       ID_BONUSES_AGILITY_61
+        END
+        POPUP "Cons / Intel / Wis"
+        BEGIN
+            MENUITEM "EJ Confirmed :",              ID_BONUSES_EJCONFIRMED
+            , INACTIVE
+            MENUITEM "   15, 17, 19",               ID_BONUSES_151719
+            , INACTIVE
+            MENUITEM "   21, 25, 29",               ID_BONUSES_212529
+            , INACTIVE
+            MENUITEM "   34, 39",                   ID_BONUSES_3439
+            , INACTIVE
+            MENUITEM "   45",                       ID_BONUSES_45, INACTIVE
+            MENUITEM SEPARATOR
+            MENUITEM "Halloween Added :",           ID_BONUSES_HALLOWEENADDED
+            , INACTIVE
+            MENUITEM "   50",                       ID_BONUSES_50, INACTIVE
+            MENUITEM "   61, 71, 81, 91, ...",      ID_BONUSES_61718191
+            , INACTIVE
+        END
+    END
+    POPUP "Version"
+    BEGIN
+        MENUITEM "HTech v02",                   ID_VERSION_HTECHV02
     END
 END
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1             BITMAP  DISCARDABLE     "res\\dot.bmp"
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

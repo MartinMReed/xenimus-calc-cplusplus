@@ -5,6 +5,7 @@
 #define IDD_CALC_DIALOG                 102
 #define IDR_MAINFRAME                   128
 #define IDR_MENU1                       129
+#define IDB_BITMAP1                     135
 #define shrineButton                    1000
 #define jelocButton                     1001
 #define ghShrine                        1002
@@ -87,15 +88,19 @@
 #define alignmentGroup                  1084
 #define neutralButton                   1085
 #define fullButton                      1086
-#define statusBar                       1090
-#define starterHelpGroup                1091
-#define DregStarter                     1092
-#define ElfStarter                      1093
-#define GnomeStarter                    1094
-#define ScallionStarter                 1095
-#define HumanStarter                    1096
-#define BehockStarter                   1097
+#define loadList                        1087
+#define charLoadLabel                   1088
 #define reset                           1100
+#define strBMP                          1102
+#define agilBMP                         1103
+#define consBMP                         1104
+#define intelBMP                        1105
+#define wisBMP                          1106
+#define loadButton                      1115
+#define saveButton                      1116
+#define saveIn                          1117
+#define charSaveLabel                   1118
+#define deleteButton                    1120
 #define ID_FILE_EXIT                    32771
 #define ID_BONUSES_EJCONFIRMED          32775
 #define ID_BONUSES_151719               32776
@@ -106,14 +111,28 @@
 #define ID_BONUSES_50                   32781
 #define ID_BONUSES_61718191             32782
 #define ID_BONUSES_ETC                  32783
+#define ID_BONUSES_STR                  32790
+#define ID_BONUSES_STR_3439             32791
+#define ID_BONUSES_STR_45               32792
+#define ID_BONUSES_AGILITY_FIGPALADIN   32796
+#define ID_BONUSES_AGILITY_3945         32797
+#define ID_BONUSES_AGILITY_RANGERDARKWARBARB 32798
+#define ID_BONUSES_AGILITY_293945       32799
+#define ID_BONUSES_AGILITY_CLERIC       32800
+#define ID_BONUSES_AGILITY              32801
+#define ID_BONUSES_AGILITY_WARLOCKWIZARD 32802
+#define ID_BONUSES_AGILITY_61           32803
+#define ID_BONUSES_AGILITY_DRUID        32804
+#define ID_BONUSES_AGILITY_50           32805
+#define ID_VERSION_HTECHV02             32808
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        135
-#define _APS_NEXT_COMMAND_VALUE         32789
-#define _APS_NEXT_CONTROL_VALUE         1101
+#define _APS_NEXT_RESOURCE_VALUE        136
+#define _APS_NEXT_COMMAND_VALUE         32809
+#define _APS_NEXT_CONTROL_VALUE         1121
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

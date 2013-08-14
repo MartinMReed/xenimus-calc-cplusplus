@@ -20,19 +20,19 @@
 class calculator {
 	
 	
-	public:
-	/**
-	* Creates a new character.
-	* 
-	* @param Class [0]Fighter [1]Ranger [2]Paladin [3]Cleric [4]Wizard [5]Warlock [6]Druid [7]Darkwar [8]Barbarian
-	* @param Level The level of the character
-	* @param HPBases The number of extra bases for HP (ie Salb rings)
-	* @param MPBases The number of extra bases for MP (ie Animus rings)
-	* @param Strength .
-	* @param Agility .
-	* @param Constitution .
-	* @param Intelligence .
-	* @param Wisdom .
+public:
+/**
+* Creates a new character.
+* 
+* @param Class [0]Fighter [1]Ranger [2]Paladin [3]Cleric [4]Wizard [5]Warlock [6]Druid [7]Darkwar [8]Barbarian
+* @param Level The level of the character
+* @param HPBases The number of extra bases for HP (ie Salb rings)
+* @param MPBases The number of extra bases for MP (ie Animus rings)
+* @param Strength .
+* @param Agility .
+* @param Constitution .
+* @param Intelligence .
+* @param Wisdom .
 	*/
 	calculator(int Class, int Level, int HPBases, int MPBases, int Strength,
 		int Agility, int Constitution, int Intelligence, int Wisdom)
@@ -48,26 +48,26 @@ class calculator {
 	} //end of constructor
 	
 	
-	/**
-	* Returns Mana
-	*
-	* @return int ManaWithOut
+	  /**
+	  * Returns Mana
+	  *
+	  * @return int ManaWithOut
 	*/
 	int getMana() {
 		return Mana;
 	} //end of getMana method
 	
 	
-	/**
-	* Returns Health
-	*
-	* @return int HealthWithOut
+	  /**
+	  * Returns Health
+	  *
+	  * @return int HealthWithOut
 	*/
 	int getHealth() {
 		return Health;
 	} //end of getHealth method
 	
-	private:
+private:
 	
 	int Mana;
 	int Health;
@@ -94,78 +94,78 @@ class calculator {
 	} //end of coreMana method
 	
 	
-	/**
-	* Calculate HP w/ given Level, Strength, and Constitution.
-	*
-	* @param lvl Level
-	* @param str Strength
-	* @param con Constitution
-	*
-	* @return base HP 
+	  /**
+	  * Calculate HP w/ given Level, Strength, and Constitution.
+	  *
+	  * @param lvl Level
+	  * @param str Strength
+	  * @param con Constitution
+	  *
+	  * @return base HP 
 	*/
 	double coreHealth(int lvl, int str, int con) {
 		return ((lvl*12.0)+(con*18.0)+((bonus(con))*18.0)+(str*8.0))*levelPercent(lvl);
 	} //end of coreHealth method
 	
 	
-	/**
-	* Calculate extra MP/HP
-	*
-	* @param b Core MP/HP
-	* @param n Number of extra bases
-	*
-	* @return MP/HP after adding bases
+	  /**
+	  * Calculate extra MP/HP
+	  *
+	  * @param b Core MP/HP
+	  * @param n Number of extra bases
+	  *
+	  * @return MP/HP after adding bases
 	*/
 	double extraBase(double b, int n) {
 		return b*(0.08*n);
 	} //end of extraBase method
 	
 	
-	/**
-	* Calculate Normal Mana without extra bases
-	*
-	* @param cla Class
-	* @param core core MP
-	*
-	* @return normal mana
+	  /**
+	  * Calculate Normal Mana without extra bases
+	  *
+	  * @param cla Class
+	  * @param core core MP
+	  *
+	  * @return normal mana
 	*/
 	double normalMana(int cla, double core) {
 		return core*manaPercent(cla);
 	} //end of normalMana method
 	
 	
-	/**
-	* Calculate normal health without extra bases
-	*
-	* @param cla Class
-	* @param core core HP
-	*
-	* @return normal health
+	  /**
+	  * Calculate normal health without extra bases
+	  *
+	  * @param cla Class
+	  * @param core core HP
+	  *
+	  * @return normal health
 	*/
 	double normalHealth(int cla, double core){
 		return core*healthPercent(cla);
 	} //end of normalHealth method
 	
 	
-	/**
-	* Calculate final HP/MP
-	*
-	* @param norm normal HP/MP without bases
-	* @param base extra HP/MP
-	*
-	* @return final HP/MP
+	  /**
+	  * Calculate final HP/MP
+	  *
+	  * @param norm normal HP/MP without bases
+	  * @param base extra HP/MP
+	  *
+	  * @return final HP/MP
 	*/
 	int fin(double norm, double base){
 		return (int)(norm+base);
 	} //end of fin method
 	
 	
-	/**
-	* Calculate stat bonus.
-	*
-	* @param s Stat
-	*
-	* @return bonuses
+	  /**
+	  * Calculate stat bonus.
+	  *
+	  * @param s Stat
+	  *
+	  * @return bonuses
 	*/
 	int bonus(int s) {
 		if (s<15) {return 0;} // 0-14
@@ -183,12 +183,12 @@ class calculator {
 	} //end of bonus method
 	
 	
-	/**
-	* Calculate level percent
-	*
-	* @param lvl Level
-	*
-	* @return 1 if lvl is greater then 40, percent otherwise
+	  /**
+	  * Calculate level percent
+	  *
+	  * @param lvl Level
+	  *
+	  * @return 1 if lvl is greater then 40, percent otherwise
 	*/
 	double levelPercent(int lvl) {
 		if ((double)lvl/40.0 > 1.0) {
@@ -200,12 +200,12 @@ class calculator {
 	} //end of levelPercent method
 	
 	
-	/**
-	* return class Mana percentage
-	*
-	* @param cla Class
-	*
-	* @return mana percent for class, else -1
+	  /**
+	  * return class Mana percentage
+	  *
+	  * @param cla Class
+	  *
+	  * @return mana percent for class, else -1
 	*/
 	double manaPercent(int cla) {
 		if (cla==0) { return 0.01; } //Fighter
@@ -221,12 +221,12 @@ class calculator {
 	} //end of manaPercent method
 	
 	
-	/**
-	* return class Health percentage
-	*
-	* @param cla Class
-	*
-	* @return health percent for class, else -1
+	  /**
+	  * return class Health percentage
+	  *
+	  * @param cla Class
+	  *
+	  * @return health percent for class, else -1
 	*/
 	double healthPercent(int cla) {
 		if (cla==0) { return 1.14; } //Fighter

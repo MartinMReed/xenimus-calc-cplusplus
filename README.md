@@ -1,5 +1,23 @@
 ## Release Notes
 
+### Version 02 (August 29, 2005)
+
+Changed mana cost for Juxta. The ones with ~ were estimated (33% decrease from original cost)
+
+All "starter help" functions were removed, I never used them myself and felt they were wasting space.
+
+When you hit a new bonus for a stat, a red square will appear to the right of the stat.
+
+You can now save and reload stats at the bottom of the calc. When you save them, the info will write to a
+DAT file that can be read in at any time. Click on the file name in the left list box then push the load
+button. To delete any saved stat files, click on the file then push the delete button (or do it manually).
+An example stat file has been included, feel free to delete it at any time.
+
+The full alignment button has been disabled so non-clerics can't even try to use it. It was fine the way
+it was before since it wouldn't let non-clerics use it anyway, but now it's grayed out and disabled. So stop
+trying to use full alignment on regular chars. Paladin alignment is still not implemented because no testing
+has been done for them. Don't expect it to be added any time soon.
+
 ### Version 01 (June 15, 2005)
 
 I commented it all the best I could... 

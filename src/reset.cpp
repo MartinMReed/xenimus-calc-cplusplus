@@ -6,6 +6,9 @@
 /** -[insert name]
 /** --[insert additions descriptions]
 /**
+/** -Halloween (08/25/05)
+/** --Reset the saveIn input
+/**
 /** Original copy by:
 /** Halloween (06/15/05)
 /**
@@ -66,17 +69,10 @@ void CCalcDlg::Onreset()
 	statArray[3] = 10;  shrineArray[3] = 0;
 	statArray[4] = 10;  shrineArray[4] = 0;
 	
-	starterHelp = FALSE;
-	starterMin[0] = 10;	starterMax[0] = 10;
-	starterMin[1] = 10;	starterMax[1] = 10;
-	starterMin[2] = 10;	starterMax[2] = 10;
-	starterMin[3] = 10;	starterMax[3] = 10;
-	starterMin[4] = 10;	starterMax[4] = 10;
-	
 	m_neutralButton.SetCheck( TRUE );
 	m_fullButton.SetCheck( FALSE );
 	
-	CCalcDlg::redo();
+	m_saveIn.SetWindowText( "Character Name" );
 	
-	m_statusBar.SetWindowText("For help with the starting stats of races, use the six buttons above ^ ^ ^ ^ ^ ^");
+	CCalcDlg::redo();
 }

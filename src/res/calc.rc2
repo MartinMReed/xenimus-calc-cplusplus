@@ -1,0 +1,26 @@
+/************************************************************************/
+/** CPlusPlus Stat Calculator
+/** Xenimus Open Source Group
+/**
+/** Additons to this file:
+/** -[insert name]
+/** --[insert additions descriptions]
+/**
+/** Original copy by:
+/** Halloween
+/**
+/** All previous names must stay included when making additions.
+/************************************************************************/
+//
+// CALC.RC2 - resources Microsoft Visual C++ does not edit directly
+//
+
+#ifdef APSTUDIO_INVOKED
+	#error this file is not editable by Microsoft Visual C++
+#endif //APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Add manually edited resources here...
+
+/////////////////////////////////////////////////////////////////////////////
